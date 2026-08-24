@@ -11,6 +11,8 @@ verifiable rewards (RLVR)**, where the reward is "do the unit tests pass," and s
 one question that makes or breaks the whole idea: does the model *learn to write correct
 code*, or does it just *learn to pass the visible tests*?
 
+**The case with receipts (frozen write-up): [`SHOWCASE.md`](SHOWCASE.md).**
+
 This repo is two things at once:
 
 1. **A build project** toward a rigorous, reproducible RLVR result (live plan:
