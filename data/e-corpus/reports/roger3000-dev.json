@@ -1,0 +1,89 @@
+{
+  "repo": "roger3000-dev",
+  "prs_scanned": 50,
+  "candidates_attempted": 8,
+  "admissible": [
+    {
+      "pr": 53,
+      "title": "feat(lane): S-129 grader_error split + S-130 digest anti-inflation guard (external-sweep steals)",
+      "base_sha": "eeb378ac0c53761d256ee3cd32181a59b4dcc213",
+      "merged_sha": "f88b8b480b0d11d4a4a02929a4c1d3d886c1ef78",
+      "test_cmd": "sh claude/skills/backlog-scout/weekly_digest.test.sh; node claude/workflows/single-lane-build.test.js",
+      "red_evidence": "weekly_digest: FAIL: S-130: unknown-CI merge vanished from the line -- got: ...CI green 100% (n/a)...; single-lane-build.test.js: ReferenceError: Cannot access 'couldNotAssess' before initialization",
+      "green_evidence": "weekly_digest.test.sh: all passed (4 new S-130 asserts); single-lane-build.test.js: all 218 passed",
+      "notes": "Two linked tests, both overlaid (merge test file onto base code). single-lane-build.test.js crashes at base via TDZ ReferenceError because the merge test's destructure list names a function not yet present/ordered in base's <<ROUTER>> region -- counted as red (non-zero exit, no pass)."
+    },
+    {
+      "pr": 52,
+      "title": "fix(lane): declared blastRadius dies at preflight -- add it to VALID_ARG_KEYS",
+      "base_sha": "b92e4f56d51fc99add2ea4860a271290433eec08",
+      "merged_sha": "eeb378ac0c53761d256ee3cd32181a59b4dcc213",
+      "test_cmd": "node claude/workflows/single-lane-build.test.js",
+      "red_evidence": "FAIL: S-128 RED (rb 08-12): a DECLARED blastRadius is a KNOWN key -- got {\"errors\":[\"unknown key 'blastRadius' -- valid keys: stub, brief, ...\"]}; 1/210 FAILED",
+      "green_evidence": "all 210 passed",
+      "notes": "Clean assertion-level failure (not a crash), directly demonstrates the named defect."
+    },
+    {
+      "pr": 51,
+      "title": "Gate hardening: S-121 degenerate verdicts / S-126-127 rewrite style / S-128 blast-radius pass budgets",
+      "base_sha": "c085c83ec4420370b776289650987746eb36eecf",
+      "merged_sha": "d7ff5dd7623d475f38b4e408d2f24c0e150d229a",
+      "test_cmd": "node claude/workflows/single-lane-build.test.js",
+      "red_evidence": "ReferenceError: Cannot access 'isDegenerateVerdict' before initialization (TDZ crash evaluating base's <<ROUTER>> region against merge test's destructure list)",
+      "green_evidence": "all 209 passed",
+      "notes": "Crash-as-red: isDegenerateVerdict is new in this PR and absent/mis-ordered in base."
+    },
+    {
+      "pr": 50,
+      "title": "S-116: halt-corpus backfill -- criterion reviews + verify verdicts, transcripts -> ledger",
+      "base_sha": "33220a3f9758b61b7b4a85a0ac4d7221c9470db9",
+      "merged_sha": "2ad45cd5203f13e1acedbe0c46284ec36e0f7891",
+      "test_cmd": "sh claude/skills/backlog-scout/halt_backfill.test.sh",
+      "red_evidence": "FAIL: not idempotent ( ->  rows); then Error: ENOENT: no such file or directory, open '.../ledger.jsonl'; halt_backfill: FAILURES",
+      "green_evidence": "halt_backfill: all tests passed",
+      "notes": "Base's halt_backfill.js does not produce the ledger file the merge test expects; cascades into a crash after the first named assertion failure."
+    },
+    {
+      "pr": 49,
+      "title": "S-124: criterion-gate severity threshold -- halt on blocking findings only",
+      "base_sha": "297733d9f2e6931539599e616c55f74f97f9c65b",
+      "merged_sha": "7aeb02073260545f8bbb62792d376262ebd942d9",
+      "test_cmd": "node claude/workflows/single-lane-build.test.js",
+      "red_evidence": "ReferenceError: Cannot access 'effectiveSeverity' before initialization (TDZ crash, effectiveSeverity is new in this PR)",
+      "green_evidence": "all 191 passed",
+      "notes": "Crash-as-red, same pattern as PR 51/53."
+    },
+    {
+      "pr": 46,
+      "title": "S-113 -- the args JSON.parse failure was swallowed into A = {}, and the error named the wrong cause",
+      "base_sha": "3b3d039e81abd1a72cb4ff2005c6b520659e927f",
+      "merged_sha": "f46fc7c77500f144ed4ecab5e6b3c086fc0141dd",
+      "test_cmd": "node claude/workflows/single-lane-build.test.js",
+      "red_evidence": "ReferenceError: Cannot access 'parseArgs' before initialization (TDZ crash, parseArgs helper is new in this PR)",
+      "green_evidence": "all 177 passed",
+      "notes": "Crash-as-red, same pattern as PR 51/53/49."
+    },
+    {
+      "pr": 44,
+      "title": "fix(sweep): S-112 -- status_sweep was blind to S-NNN ids and called it clean",
+      "base_sha": "df5fdaab096d73b205fa0f89bfc2403f923b5f5d",
+      "merged_sha": "449b680745c71f4adfe31f74b4f25cf680c16cf6",
+      "test_cmd": "sh claude/skills/backlog-scout/status_sweep.test.sh",
+      "red_evidence": "FAIL: numeric S-NNN id not parsed/matched; FAIL: 0 parsed entries reported success; FAIL: 0-entry run did not name its blindness; FAIL: --json path still reports empty findings on a blind run",
+      "green_evidence": "status_sweep.test: ALL PASSED",
+      "notes": "Clean assertion-level failures, no crash -- strongest evidence quality of the set."
+    },
+    {
+      "pr": 42,
+      "title": "fix(ratchet): S-111 -- the assert regex was repo-blind, and blind now ERRORS",
+      "base_sha": "52e40114c9921b7de4c3f26829948d960c7bc428",
+      "merged_sha": "992a6d659c42b39a08d31d9e4401c9822d7f246d",
+      "test_cmd": "sh claude/skills/repo-safety-sweep/test_ratchet.test.sh",
+      "red_evidence": "FAIL: a blind ratchet printed GREEN -- the S-111 defect; FAIL: override ran but miscounted --   assertions     3 -> 3     (+0)",
+      "green_evidence": "test_ratchet.test.sh: all passed",
+      "notes": "Clean assertion-level failures, no crash."
+    }
+  ],
+  "rejected": [],
+  "environment_notes": "Linear PR history: each PR's merge_sha^1 equals the prior PR's merge_sha, so worktrees line up cleanly. Node v26.3.1, no deps needed -- suites are dependency-free per repo convention. Method used: for each linked test, copy the MERGE commit's test file onto the BASE worktree's code (overlay), then run it there for the RED check, and run the MERGE worktree's own test file at MERGE for the GREEN check. This is necessary because most of these tests are purely additive (new assertions appended to the same file) -- running each commit's own checked-out test file at that commit trivially passes at base (the new assertions aren't there yet) and proves nothing. Side effect: single-lane-build.test.js repeatedly crashes at base with a TDZ ReferenceError (PRs 53, 51, 49, 46) because its harness destructures function names out of an eval'd <<ROUTER>> region, and the merge test's destructure list names functions not yet present/ordered in base's router region -- a real, reproducible, deterministic failure, counted as red. Cap of 8 admissible reached on the first 8 candidates attempted (all newest-first, PR 53 down to PR 42); no rejects were needed. 16 further candidates (41, 38, 36, 32, 30, 29, 27, 26, 21, 20, 19, 18, 17, 16, 14, 5) were identified as structurally eligible (touch both a *.test.js/*.test.sh and its code) but not attempted, since the 8-admissible stop condition was hit first. All scratch worktrees removed; git worktree list on the target repo shows only the original working copy."
+}

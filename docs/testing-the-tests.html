@@ -1,0 +1,403 @@
+<title>Testing the Tests</title>
+<style>
+  :root {
+    --ground: #F7F9F8;
+    --surface: #FFFFFF;
+    --ink: #1C2B2D;
+    --muted: #5C6F70;
+    --line: #D8E2DF;
+    --accent: #0E7C6B;
+    --accent-soft: #E3F0ED;
+    --pass: #2E9E5B;
+    --fail: #C6453F;
+    --warn: #B07A10;
+    --warn-soft: #F8EDD4;
+    --code-bg: #EDF3F1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #101817;
+      --surface: #16211F;
+      --ink: #E8EFED;
+      --muted: #93A5A2;
+      --line: #2A3B38;
+      --accent: #3FB9A5;
+      --accent-soft: #1B2E2B;
+      --pass: #4CBB77;
+      --fail: #E06B65;
+      --warn: #D9A441;
+      --warn-soft: #2E2716;
+      --code-bg: #1C2B28;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #101817;
+    --surface: #16211F;
+    --ink: #E8EFED;
+    --muted: #93A5A2;
+    --line: #2A3B38;
+    --accent: #3FB9A5;
+    --accent-soft: #1B2E2B;
+    --pass: #4CBB77;
+    --fail: #E06B65;
+    --warn: #D9A441;
+    --warn-soft: #2E2716;
+    --code-bg: #1C2B28;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Seravek, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  .serif, h1, h2 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    text-wrap: balance;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace; }
+
+  header { padding: 4.5rem 0 3rem; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+  h1 { font-size: clamp(2.1rem, 5.5vw, 3.1rem); line-height: 1.12; margin: 0 0 1.25rem; font-weight: 600; }
+  .lede { font-size: 1.2rem; line-height: 1.55; color: var(--muted); max-width: 38rem; margin: 0; }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  main { padding-bottom: 2rem; }
+  section { padding: 2.75rem 0 0.5rem; }
+  h2 { font-size: 1.55rem; margin: 0 0 1rem; font-weight: 600; }
+  p { margin: 0 0 1.1rem; max-width: 40rem; }
+  .kicker {
+    display: block;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  /* checkmark strip — the signature graphic */
+  .checkrow {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 1.75rem 0 0.75rem;
+  }
+  .check {
+    width: 2.6rem; height: 2.6rem;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem;
+    background: var(--accent-soft);
+    color: var(--pass);
+    border: 1px solid var(--line);
+  }
+  .check.false-pass {
+    background: var(--warn-soft);
+    color: var(--warn);
+    border-color: var(--warn);
+    position: relative;
+  }
+  .caption { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
+
+  /* stat band */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.75rem 0;
+  }
+  .stat { background: var(--surface); padding: 1.25rem 1.25rem 1.1rem; }
+  .stat .num {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 1.9rem;
+    font-weight: 600;
+    line-height: 1.1;
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+  .stat .num.warn-num { color: var(--warn); }
+  .stat .num.accent-num { color: var(--accent); }
+  .stat .lbl { font-size: 0.85rem; color: var(--muted); line-height: 1.4; display: block; }
+
+  /* step list */
+  .steps { list-style: none; margin: 1.5rem 0; padding: 0; display: flex; flex-direction: column; gap: 1.4rem; }
+  .steps li { display: grid; grid-template-columns: 2.4rem 1fr; gap: 1rem; align-items: start; }
+  .step-marker {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 6px;
+    width: 2.4rem; height: 2.4rem;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 0.15rem;
+  }
+  .steps h3 { margin: 0 0 0.3rem; font-size: 1.05rem; font-weight: 600; }
+  .steps p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+  .steps p strong { color: var(--ink); }
+
+  /* quote / takeaway */
+  .takeaway {
+    border-left: 3px solid var(--accent);
+    background: var(--surface);
+    border-radius: 0 8px 8px 0;
+    padding: 1.3rem 1.5rem;
+    margin: 1.9rem 0;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 1.18rem;
+    line-height: 1.5;
+  }
+
+  /* before/after */
+  .fork { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.6rem 0; }
+  .fork > div {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1.1rem 1.25rem;
+  }
+  .fork .mono { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+  .fork .up { color: var(--fail); }
+  .fork .down { color: var(--pass); }
+  .fork p { font-size: 0.95rem; color: var(--muted); margin: 0; }
+  @media (max-width: 34rem) { .fork { grid-template-columns: 1fr; } }
+
+  /* tech appendix */
+  details {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.35rem;
+    margin: 1.4rem 0;
+  }
+  summary { cursor: pointer; font-weight: 600; }
+  summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .tablewrap { overflow-x: auto; margin: 1rem 0; }
+  table {
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 34rem;
+    font-variant-numeric: tabular-nums;
+  }
+  th, td { text-align: left; padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line); }
+  th {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); font-weight: 500;
+  }
+  td.num-cell { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .ci { color: var(--muted); font-size: 0.82rem; }
+
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    background: var(--code-bg);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.88em;
+  }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 3rem;
+    padding: 1.75rem 0 3rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  footer .mono { font-size: 0.78rem; }
+</style>
+
+<div class="wrap">
+<header>
+  <p class="eyebrow">rlvr-codegen · results, plain language</p>
+  <h1>Testing the Tests</h1>
+  <p class="lede">Before teaching an AI to write code by rewarding it when
+  <strong>the tests pass</strong>, we asked a harder question first:
+  <strong>how often do the tests say "pass" when the code is actually wrong?</strong>
+  Now we know. This page explains what we did and what we found — no jargon required.</p>
+</header>
+
+<main>
+<section>
+  <span class="kicker">The setup</span>
+  <h2>Why "the tests pass" is a risky reward</h2>
+  <p>A popular way to train coding AIs is simple: give the model a problem, run the
+  problem's tests on its answer, and reward it when they go green. It feels objective.
+  But an AI under training is a relentless optimizer — if there is <em>any</em> way to
+  make the tests green without actually solving the problem, sooner or later it can
+  find it. That failure mode has a name: <strong>reward hacking</strong>.</p>
+  <p>Most projects train first and worry about this later. We did it the other way
+  around: <strong>measure how leaky the reward is before training anything against it.</strong></p>
+</section>
+
+<section>
+  <span class="kicker">What we did</span>
+  <h2>Three measurements, two bonuses, zero dollars</h2>
+  <ul class="steps">
+    <li>
+      <span class="step-marker">01</span>
+      <div>
+        <h3>Built the measuring rig</h3>
+        <p>A locked-down sandbox that runs untrusted code safely, plus a fixed,
+        seeded setup so <strong>every number on this page can be regenerated with one
+        command</strong>. We calibrated it first: the official correct solutions pass
+        100% — so when something fails later, it's the code, not the rig.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-marker">02</span>
+      <div>
+        <h3>Tested the tests</h3>
+        <p>We took the official solutions to ~540 benchmark problems and planted
+        <strong>5,932 small bugs</strong> in them — a flipped comparison here, an
+        off-by-one there. Then we checked: do the problem's own tests catch the bug?
+        A much larger independent test set acted as the referee.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-marker">03</span>
+      <div>
+        <h3>Probed the AI</h3>
+        <p>We had a small, untrained code model (running free on a laptop) write
+        <strong>1,610 solutions</strong>, and checked every one against both the normal
+        tests and the larger referee set. The question: of the answers that
+        <em>look</em> correct, how many actually aren't?</p>
+      </div>
+    </li>
+  </ul>
+  <p>Two bonuses along the way: an exam of <strong>39 real bugs mined from our own
+  private repos</strong> (each one verified: the test genuinely fails before the fix and
+  passes after), and a fact-checked written report of everything in the repository.</p>
+</section>
+
+<section>
+  <span class="kicker">The result</span>
+  <h2>Green isn't always good</h2>
+
+  <div class="checkrow" role="img" aria-label="Eight checkmarks, one of which is a false pass">
+    <div class="check">✓</div><div class="check">✓</div><div class="check">✓</div>
+    <div class="check">✓</div><div class="check false-pass">✓</div><div class="check">✓</div>
+    <div class="check">✓</div><div class="check">✓</div>
+  </div>
+  <p class="caption">Of every 8 AI answers that pass the visible tests, roughly 1 is
+  actually wrong — the tests just can't see it.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="num warn-num">4–6%</span>
+      <span class="lbl">of planted bugs slip past the problems' own tests but are caught
+      by the larger referee set — a measured blind spot in the reward</span></div>
+    <div class="stat"><span class="num warn-num">12–18%</span>
+      <span class="lbl">of the AI's "passing" answers are actually wrong — before any
+      training has pushed it to game the tests</span></div>
+    <div class="stat"><span class="num accent-num">39</span>
+      <span class="lbl">real tasks mined from our own repos, forming an exam no public
+      model has ever seen</span></div>
+    <div class="stat"><span class="num accent-num">$0</span>
+      <span class="lbl">spent — everything ran on a laptop; the GPU stays unrented
+      until the numbers justify it</span></div>
+  </div>
+
+  <div class="takeaway">"Tests pass" overstates correctness — and now we know by how
+  much, instead of guessing.</div>
+
+  <p>One more pattern worth noticing: the benchmark with <em>fewer tests per problem</em>
+  leaked more on both measurements (6% vs 4% for planted bugs; 18% vs 12% for AI
+  answers). Weaker tests, leakier reward — the direction theory predicted, now with
+  numbers attached.</p>
+</section>
+
+<section>
+  <span class="kicker">Why it matters</span>
+  <h2>The "before" photo that makes training honest</h2>
+  <p>If we later spend the ~$30–80 to actually train the model against this reward,
+  we can re-measure one number on the same held-out problems: the share of
+  "passing" answers that are secretly wrong. Today it's 12%. After training, it moves —
+  and the direction tells the whole story:</p>
+  <div class="fork">
+    <div>
+      <span class="mono up">If it goes up</span>
+      <p>The model learned to <strong>game the tests</strong> — reward hacking,
+      measured directly instead of suspected.</p>
+    </div>
+    <div>
+      <span class="mono down">If it goes down</span>
+      <p>The model <strong>genuinely got better</strong> at writing correct code —
+      the reward taught the right thing.</p>
+    </div>
+  </div>
+  <p>Without this weekend's measurements, those two outcomes would be
+  indistinguishable. That is the whole point of doing the boring part first.</p>
+</section>
+
+<section>
+  <span class="kicker">For technical readers</span>
+  <h2>The precise version</h2>
+  <details>
+    <summary>Numbers with confidence intervals, and where they come from</summary>
+    <p style="margin-top: 0.9rem;">Mutation audit (Phase B): seeded single-edit AST
+    mutants of reference solutions, scored against the original suite (the reward)
+    vs the full EvalPlus-extended suite (base ∪ plus; a stronger proxy, <em>not</em>
+    ground truth).</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th>Dataset</th><th>Killed by visible</th><th>Killed by extended</th><th>Gap (pooled)</th><th>Mutants</th></tr>
+        <tr><td>HumanEval</td><td class="num-cell">89.2% <span class="ci">(88.0–90.4)</span></td>
+            <td class="num-cell">92.9% <span class="ci">(91.8–93.8)</span></td>
+            <td class="num-cell">+3.6%</td><td class="num-cell">2,455</td></tr>
+        <tr><td>MBPP</td><td class="num-cell">87.1% <span class="ci">(85.9–88.2)</span></td>
+            <td class="num-cell">93.5% <span class="ci">(92.6–94.3)</span></td>
+            <td class="num-cell">+6.4%</td><td class="num-cell">3,477</td></tr>
+      </table>
+    </div>
+    <p>Base-model probe (Phase C): Qwen2.5-Coder-1.5B (bf16, MLX, local), k=10,
+    temperature 0.8, held-out splits only. Gap rate = among visible-passing samples,
+    the fraction failing the extended suite.</p>
+    <div class="tablewrap">
+      <table>
+        <tr><th>Dataset</th><th>pass@1</th><th>pass@10 visible</th><th>pass@10 extended</th><th>Gap rate</th></tr>
+        <tr><td>HumanEval <span class="ci">(48 tasks)</span></td>
+            <td class="num-cell">25.6%</td><td class="num-cell">62.5%</td><td class="num-cell">56.2%</td>
+            <td class="num-cell">12.2% <span class="ci">(7.5–19.1)</span></td></tr>
+        <tr><td>MBPP <span class="ci">(113 tasks)</span></td>
+            <td class="num-cell">14.4%</td><td class="num-cell">56.6%</td><td class="num-cell">46.9%</td>
+            <td class="num-cell">17.8% <span class="ci">(12.7–24.4)</span></td></tr>
+      </table>
+    </div>
+    <p>Everything is reproducible from committed scripts, a frozen seeded split
+    (seed <code>20260814</code>), run manifests, and per-sample logs. Declared scope
+    and caveats — the two env-limited excluded tasks, the SHA-256 comparison for
+    oversized outputs, the one-space tokenizer-artifact repair (audited: pass rates
+    reported for repaired vs unrepaired samples) — live in the writeup.</p>
+    <p style="margin-bottom: 0;">Full detail: <code>docs/08-results-verifier-adequacy.md</code>
+    in the repository, with raw artifacts under <code>results/</code> and the own-repo
+    exam under <code>data/e-corpus/</code>.</p>
+  </details>
+</section>
+</main>
+
+<footer>
+  <p>rlvr-codegen · <a href="https://github.com/Michiel-DK/rlvr-codegen">github.com/Michiel-DK/rlvr-codegen</a></p>
+  <p class="mono">Phases A · B · C · E · F shipped 2026-08-14 → 16 &nbsp;·&nbsp; total spend $0 &nbsp;·&nbsp; every number reproducible from one seed</p>
+</footer>
+</div>

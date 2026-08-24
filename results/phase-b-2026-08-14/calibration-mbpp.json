@@ -1,0 +1,1552 @@
+{
+  "config": {
+    "dataset": "mbpp",
+    "limit": null,
+    "memory_mb": 512,
+    "suite": "both"
+  },
+  "created_at": "2026-08-14T21:13:35.102728+00:00",
+  "git_sha": "f8c484d7d7c883bdfba5849e74f0364eb2389f68",
+  "metrics": {
+    "base_failures": [],
+    "base_pass_fraction": 1.0,
+    "env_failures": [
+      {
+        "suite": "plus",
+        "task_id": "Mbpp/255",
+        "what": "reference execution incomplete for task_id='Mbpp/255' suite='plus': reference run hit the memory limit (85/109 protocol records received) (persisted after 4x-budget retry)"
+      }
+    ],
+    "n_base_scored": 378,
+    "n_plus_scored": 377,
+    "n_tasks": 378,
+    "plus_failures": [],
+    "plus_pass_fraction": 1.0,
+    "zero_input_base_tasks": [],
+    "zero_input_plus_tasks": [
+      "Mbpp/793"
+    ]
+  },
+  "package_versions": {
+    "evalplus": "0.3.1",
+    "numpy": "2.4.6",
+    "python": "3.11.12"
+  },
+  "predictions": {
+    "Mbpp/100": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/101": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/102": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/103": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/104": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/105": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/106": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/108": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/109": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/11": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/111": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/113": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/116": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/118": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/119": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/12": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/120": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/123": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/124": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/125": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/126": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/127": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/128": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/129": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/130": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/131": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/132": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/133": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/135": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/137": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/138": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/139": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/14": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/140": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/141": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/142": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/145": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/16": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/160": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/161": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/162": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/165": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/166": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/167": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/168": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/17": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/170": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/171": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/172": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/18": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/19": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/2": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/20": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/222": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/223": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/224": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/226": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/227": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/230": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/232": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/233": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/234": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/235": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/237": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/238": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/239": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/240": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/242": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/244": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/245": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/247": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/250": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/251": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/252": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/253": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/255": {
+      "verdict_base": true,
+      "verdict_plus": null
+    },
+    "Mbpp/256": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/257": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/259": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/260": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/261": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/262": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/264": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/265": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/266": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/267": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/268": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/269": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/270": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/271": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/272": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/273": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/274": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/276": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/277": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/278": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/279": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/280": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/281": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/282": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/283": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/284": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/285": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/286": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/287": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/290": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/292": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/293": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/294": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/296": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/297": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/299": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/3": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/300": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/301": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/305": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/306": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/308": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/309": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/310": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/311": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/312": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/388": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/389": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/390": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/391": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/392": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/394": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/395": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/397": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/398": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/4": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/404": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/405": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/406": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/409": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/410": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/412": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/413": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/414": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/415": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/418": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/419": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/420": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/421": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/422": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/424": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/425": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/426": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/427": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/428": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/429": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/430": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/432": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/433": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/435": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/436": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/437": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/439": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/440": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/441": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/445": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/446": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/447": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/448": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/450": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/451": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/453": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/454": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/455": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/456": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/457": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/458": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/459": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/460": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/462": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/463": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/465": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/468": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/470": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/471": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/472": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/473": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/474": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/475": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/476": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/477": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/478": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/479": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/554": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/555": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/556": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/557": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/558": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/559": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/56": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/560": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/562": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/563": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/564": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/565": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/566": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/567": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/568": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/569": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/57": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/572": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/573": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/576": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/577": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/578": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/579": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/58": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/580": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/581": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/583": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/585": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/586": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/587": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/588": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/589": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/59": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/590": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/591": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/592": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/593": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/594": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/596": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/597": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/598": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/599": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/6": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/600": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/602": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/603": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/604": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/605": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/606": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/607": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/608": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/61": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/610": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/611": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/612": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/614": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/615": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/616": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/618": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/619": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/62": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/620": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/622": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/623": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/624": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/626": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/628": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/629": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/63": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/630": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/631": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/632": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/633": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/635": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/637": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/638": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/639": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/64": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/641": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/643": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/644": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/65": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/66": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/67": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/68": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/69": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/7": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/70": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/71": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/72": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/720": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/721": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/722": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/723": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/724": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/725": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/726": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/728": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/730": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/731": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/732": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/733": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/734": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/735": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/736": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/737": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/739": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/74": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/740": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/741": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/742": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/743": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/744": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/745": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/748": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/749": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/75": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/750": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/751": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/752": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/753": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/754": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/755": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/757": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/758": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/759": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/760": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/762": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/763": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/764": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/765": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/766": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/767": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/769": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/77": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/770": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/771": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/772": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/773": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/775": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/777": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/778": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/780": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/781": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/782": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/784": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/785": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/786": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/787": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/788": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/79": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/790": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/791": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/792": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/793": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/794": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/796": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/797": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/798": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/799": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/8": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/80": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/800": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/801": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/803": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/804": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/805": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/806": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/807": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/808": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/809": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/82": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/84": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/85": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/86": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/87": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/88": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/89": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/9": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/90": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/91": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/92": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/93": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/94": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/95": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/96": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/97": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/98": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "Mbpp/99": {
+      "verdict_base": true,
+      "verdict_plus": true
+    }
+  },
+  "run_id": "calib-mbpp-v4",
+  "split_file": "data/splits/split_v1.json",
+  "split_sha256": "183a619c1b688dfb42c25e6aab1066bf7611829e3e9025c046ae580f3ad4ba84"
+}

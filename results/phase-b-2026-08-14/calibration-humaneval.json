@@ -1,0 +1,690 @@
+{
+  "config": {
+    "dataset": "humaneval",
+    "limit": null,
+    "memory_mb": 512,
+    "suite": "both"
+  },
+  "created_at": "2026-08-14T21:11:06.916927+00:00",
+  "git_sha": "f8c484d7d7c883bdfba5849e74f0364eb2389f68",
+  "metrics": {
+    "base_failures": [],
+    "base_pass_fraction": 1.0,
+    "env_failures": [],
+    "n_base_scored": 164,
+    "n_plus_scored": 164,
+    "n_tasks": 164,
+    "plus_failures": [
+      "HumanEval/83"
+    ],
+    "plus_pass_fraction": 0.9939024390243902,
+    "zero_input_base_tasks": [],
+    "zero_input_plus_tasks": []
+  },
+  "package_versions": {
+    "evalplus": "0.3.1",
+    "numpy": "2.4.6",
+    "python": "3.11.12"
+  },
+  "predictions": {
+    "HumanEval/0": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/1": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/10": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/100": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/101": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/102": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/103": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/104": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/105": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/106": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/107": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/108": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/109": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/11": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/110": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/111": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/112": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/113": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/114": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/115": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/116": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/117": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/118": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/119": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/12": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/120": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/121": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/122": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/123": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/124": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/125": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/126": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/127": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/128": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/129": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/13": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/130": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/131": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/132": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/133": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/134": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/135": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/136": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/137": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/138": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/139": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/14": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/140": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/141": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/142": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/143": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/144": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/145": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/146": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/147": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/148": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/149": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/15": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/150": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/151": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/152": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/153": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/154": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/155": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/156": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/157": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/158": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/159": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/16": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/160": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/161": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/162": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/163": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/17": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/18": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/19": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/2": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/20": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/21": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/22": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/23": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/24": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/25": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/26": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/27": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/28": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/29": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/3": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/30": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/31": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/32": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/33": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/34": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/35": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/36": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/37": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/38": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/39": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/4": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/40": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/41": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/42": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/43": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/44": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/45": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/46": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/47": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/48": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/49": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/5": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/50": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/51": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/52": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/53": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/54": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/55": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/56": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/57": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/58": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/59": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/6": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/60": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/61": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/62": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/63": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/64": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/65": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/66": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/67": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/68": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/69": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/7": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/70": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/71": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/72": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/73": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/74": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/75": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/76": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/77": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/78": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/79": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/8": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/80": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/81": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/82": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/83": {
+      "verdict_base": true,
+      "verdict_plus": false
+    },
+    "HumanEval/84": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/85": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/86": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/87": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/88": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/89": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/9": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/90": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/91": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/92": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/93": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/94": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/95": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/96": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/97": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/98": {
+      "verdict_base": true,
+      "verdict_plus": true
+    },
+    "HumanEval/99": {
+      "verdict_base": true,
+      "verdict_plus": true
+    }
+  },
+  "run_id": "calib-humaneval-v4",
+  "split_file": "data/splits/split_v1.json",
+  "split_sha256": "183a619c1b688dfb42c25e6aab1066bf7611829e3e9025c046ae580f3ad4ba84"
+}

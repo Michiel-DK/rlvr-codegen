@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.hypothesis/
+*.egg-info/
+dist/
+build/
+runs/
+.DS_Store
+.env
+wandb/
+outputs/
+adapters/
+.claude/worktrees/

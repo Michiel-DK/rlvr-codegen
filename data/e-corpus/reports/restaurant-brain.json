@@ -1,0 +1,126 @@
+{
+  "repo": "restaurant-brain",
+  "prs_scanned": 120,
+  "prs_scanned_note": "gh pr list --limit 120 returned exactly 120 rows (the limit), newest-first down to PR #362 — this is the 120 most-recently-merged PRs, NOT all merged PRs in the repo's history. 37 of those 120 had both a test file and non-test code in the diff.",
+  "candidates_attempted": 12,
+  "admissible": [
+    {
+      "pr": 442,
+      "title": "Card 91c — fix the SAF-T midnight window arithmetic in replay_with_counts (T-B)",
+      "base_sha": "61510b22f45beb2a9cc4b26c3d763c03b003a895",
+      "merged_sha": "ba40bbd38b28fcfa3eafaf9d023cda7ea2db0e24",
+      "test_cmd": "python -m pytest tests/test_replay_midnight_window.py -v",
+      "red_evidence": "assert per_day == {DAY_1: 10.0, DAY_2: 20.0, DAY_3: 30.0}; got {5-5:20.0,5-6:30.0,5-7:0.0}. 3 failed, 2 passed in 1.36s",
+      "green_evidence": "5 passed in 1.30s",
+      "notes": "RED_KIND=assertion. Test file is new in this PR; RED reproduced by running merge's test against base's app/ (identical to app.replay.py pre-fix, all other app modules unchanged)."
+    },
+    {
+      "pr": 405,
+      "title": "fix(brain): top_sellers windowed UTC while meaning tenant-local days",
+      "base_sha": "f694f124d2dbc467cc8cb36ef6e150a0a96291b8",
+      "merged_sha": "6afdd21d8d3ad0c2397f3d332f3c65113d81fe7f",
+      "test_cmd": "python -m pytest tests/test_top_sellers_tenant_local.py -v",
+      "red_evidence": "assert rows == [('BURGER', 7.0)]; got []. 4 failed, 1 passed in 0.31s",
+      "green_evidence": "5 passed in 0.23s",
+      "notes": "RED_KIND=assertion. UTC-window-vs-tenant-local-day bug in top_sellers; clean bugfix shape."
+    },
+    {
+      "pr": 381,
+      "title": "fix(Card 74): fail-loud write door for a sub-recipe edge's unit",
+      "base_sha": "b736f6bc50682cc40eea301705acaf2f8a62a61c",
+      "merged_sha": "01e392d990f032fd6fec3e65e51a18e315b3f83f",
+      "test_cmd": "python -m pytest tests/test_card74_subrecipe_unit_guard.py -v",
+      "red_evidence": "Failed: DID NOT RAISE ValueError (unit guard missing for g/kg/ml/L/dozen/truckload); 8 failed, 8 passed in 0.79s",
+      "green_evidence": "16 passed in 0.63s",
+      "notes": "RED_KIND=assertion. Missing unit-guard on sub-recipe edges; clean bugfix shape."
+    },
+    {
+      "pr": 461,
+      "title": "Card 84 — JSON 404 for unmatched /api/* paths (never 200 + SPA shell)",
+      "base_sha": "9d724d7ae34e63a943c36c485ca45065ea6250af",
+      "merged_sha": "9faffd269309b98093ba3454f4962acd5c1540ab",
+      "test_cmd": "python -m pytest tests/test_card84_api_json_404.py -v",
+      "red_evidence": "assert got.status_code == 404; got 200 (SPA shell served for /api/total-nonsense-xyz). 2 failed, 2 passed in 1.04s",
+      "green_evidence": "4 passed in 0.69s",
+      "notes": "RED_KIND=assertion. Self-contained spa_client fixture (uses tmp_path), no external frontend build needed. Farm-layout control (app symlinked to MERGE instead of base, everything else identical) reproduces the plain-merge-worktree GREEN exactly (4 passed) — confirms the symlink-farm harness itself isn't the source of the RED/GREEN divergence for the app-swap family of PRs."
+    },
+    {
+      "pr": 463,
+      "title": "Card 82 — get_or_create_ingredient opens the scalar book it creates",
+      "base_sha": "9faffd269309b98093ba3454f4962acd5c1540ab",
+      "merged_sha": "4ef17139eb5bc134d7508ea9ae8c10bf8c011276",
+      "test_cmd": "python -m pytest tests/test_card82_graph_opening_balance.py -v",
+      "red_evidence": "expected exactly one opening row, got 0 (assert 0 == 1); also total_qty_base mismatches (10.0 != 60.0). 6 failed, 8 passed in 1.03s",
+      "green_evidence": "14 passed in 0.86s",
+      "notes": "RED_KIND=assertion. Base sha here is 461's merge commit (461 and 463 are adjacent in history)."
+    },
+    {
+      "pr": 382,
+      "title": "Card 73: a VAT_TIER_FALLBACK invoice line now reaches price history",
+      "base_sha": "01e392d990f032fd6fec3e65e51a18e315b3f83f",
+      "merged_sha": "a3838565d89c74f7fbe8a889066c39729ec39d67",
+      "test_cmd": "python -m pytest tests/test_vat_fallback_price_history_hole.py -v",
+      "red_evidence": "TypeError: record_observation() got an unexpected keyword argument 'vat_tier'. 12 failed, 3 passed in 0.73s",
+      "green_evidence": "15 passed in 0.58s",
+      "notes": "RED_KIND=runtime-typeerror. New kwarg didn't exist pre-fix — a genuine runtime failure of the linked test, not an assertion mismatch."
+    },
+    {
+      "pr": 363,
+      "title": "Card 65b: the waste event's ATTRIBUTION follows the book (D-65-2)",
+      "base_sha": "88185342a1bfc9175de3396d48ee6348ada3dff8",
+      "merged_sha": "3e7f03f4568e266908d292a8b9f1065b14a6a26b",
+      "test_cmd": "python -m pytest tests/test_card65b_attribution_follows_the_book.py -v",
+      "red_evidence": "assert window_qty == totals_qty == 10.0; got 10.0 == 0.0 (waste_totals miscounts). 8 failed, 7 passed in 0.78s",
+      "green_evidence": "15 passed in 0.65s",
+      "notes": "RED_KIND=assertion. Clean bugfix shape."
+    },
+    {
+      "pr": 419,
+      "title": "sentinel card: exclude datetime.min sale lines from every reader",
+      "base_sha": "c9f5987896464cf9298ea3be28518df8e3e7e77b",
+      "merged_sha": "b20556deef72abc2816e18c65806bdbed1ba39f5",
+      "test_cmd": "python -m pytest tests/test_sentinel_undated_lines.py -v",
+      "red_evidence": "27 failed, 5 passed in 3.97s; e.g. assert sellers == [('ITEM', 60.0)]; got [('ITEM', 64.0)] (sentinel sale line not excluded).",
+      "green_evidence": "32 passed in 2.74s",
+      "notes": "RED_KIND=assertion. Large sweep across many readers (19 files touched) — bigger/riskier task than the others but cleanly reproduces."
+    },
+    {
+      "pr": 422,
+      "title": "Card A1a+SC-2 — shared authority helper + self-grading fix + enumeration test",
+      "base_sha": "98d4e78ebdb1eeebc0889114c64611170f6cc5f9",
+      "merged_sha": "c960e7a15303fd6af44b4b4f0a779fa8a117d2be",
+      "test_cmd": "python -m pytest tests/test_card_a1a_authority_helper.py -v",
+      "red_evidence": "ImportError: cannot import name 'authoritative_ids' from 'app.services.stock_count' (collection error, exit code 2)",
+      "green_evidence": "22 passed in 1.09s",
+      "notes": "RED_KIND=collection-error (ImportError — helper function is net-new, not modified). Feature-shaped, not a narrow bugfix: the derived eval task is 'write this function from scratch given the test', not 'fix this bug'. Flagging for curator judgment."
+    },
+    {
+      "pr": 450,
+      "title": "Card A1b — route the three remaining StockCount readers through authoritative_ids",
+      "base_sha": "95d007e397adfbba84886a5c254301a4df3d2d1d",
+      "merged_sha": "9a067d6467b7c4b39903d8714eac7133bc15bcbf",
+      "test_cmd": "python -m pytest tests/test_card_a1b_authority_routing.py -v",
+      "red_evidence": "assert len(before) == 1; got 2 (drift_samples not deduped by authority); also AttributeError: module has no attribute 'authoritative_ids'. 10 failed, 4 passed, 1 xfailed in 1.23s",
+      "green_evidence": "14 passed, 1 xfailed in 1.07s",
+      "notes": "RED_KIND=assertion (also one AttributeError). Clean bugfix/refactor shape."
+    },
+    {
+      "pr": 423,
+      "title": "sentinel-poison DETECTION sweep — scripts/sweep_sentinel_poison.py (read-only)",
+      "base_sha": "c960e7a15303fd6af44b4b4f0a779fa8a117d2be",
+      "merged_sha": "f356f3a9e635a433576e85a504b5fdb3e9679867",
+      "test_cmd": "python -m pytest tests/test_sentinel_poison_sweep.py -v",
+      "red_evidence": "ModuleNotFoundError: No module named 'scripts.sweep_sentinel_poison' (collection error, exit code 2)",
+      "green_evidence": "27 passed in 5.18s",
+      "notes": "RED_KIND=collection-error (ModuleNotFoundError — whole new script, not modified). Weakest of the 11 as a codegen task: RED is 'module doesn't exist yet', not a behavioral failure. Harness-validity note: an EARLIER attempt at this same PR, before the check_pr.sh fix that routes scripts/ from BASE instead of MERGE, farmed with scripts/->MERGE and returned a false 27-passed RED (the farm was silently running the fixed script both times) — the script was corrected (scripts/,content/,demo/,guardrails/ now all symlink from BASE, matching app/) and rerun to get the ModuleNotFoundError shown here. That correction was applied before any of the other 10 admissible PRs were checked, and none of them touch scripts/ or the other extra dirs, so it does not affect their results. Flagging 423 itself for curator judgment given the RED_KIND."
+    }
+  ],
+  "rejected": [
+    {
+      "pr": 369,
+      "reason": "test-predates-fix",
+      "detail": "Test passes identically at base and merge (23 passed, 10 pg-infra errors both times); PR's own message says 'mechanism unchanged since pass 6' — no discriminating red."
+    }
+  ],
+  "environment_notes": "Python 3.10.6 venv at scratchpad/ecorpus-rb/venv with restaurant-brain's runtime deps only (pip install -e '.[dev]' then `pip uninstall restaurant-brain` to strip the editable install, which otherwise shadows worktree app/ code via a meta-path finder). Disclosure on the one command that touched the actual repo checkout: the initial `pip install -e '.[dev]'` was run from the user's real working tree (before any worktree existed) to resolve dependencies; it only refreshed the pre-existing, gitignored restaurant_brain.egg-info/ directory — `git status --short` was empty immediately after, confirmed again at the very end of the session. No file inside the real checkout was created, modified, or committed at any point. Most tests use the db_session fixture (in-memory SQLite via StaticPool) — no external services needed. tests/test_auth_card8.py and part of tests/test_schema_drift_check.py require live Postgres (pg_session/live_pg_engine fixtures, which FAIL LOUD rather than skip if unreachable); `docker compose up -d db` (postgres:16-alpine, host port 5434) plus TEST_POSTGRES_URL=postgresql+psycopg://brain:brain@localhost:5434/restaurant_brain satisfies this — used once, for PR 369, then torn down (`docker compose down`) before finishing; no repo files were touched by this either (docker-compose.yml was only read). Reproduction method: for each PR, two `git worktree add --detach` checkouts (base=merge^1, merge=mergeCommit) under scratchpad/ecorpus-rb/; RED is measured by running the MERGE worktree's test file against the BASE worktree's app/ (and scripts/, content/, demo/, guardrails/ if present) via a third scratch dir of symlinks (app,scripts,... -> base; tests,pyproject.toml -> merge) so pytest's own sys.path rootdir-insertion can't accidentally pick up the fixed app code (a plain PYTHONPATH-ordering trick failed for this reason — pytest prepends the test file's package root before PYTHONPATH). GREEN is a plain pytest run inside the merge worktree. Harness self-check: reran PR 461's RED farm with app symlinked to MERGE instead of base (everything else identical) and got 4 passed, matching the plain merge-worktree run exactly — this confirms the farm layout itself is not what's producing RED, isolating the app-code swap as the actual cause for the whole family of PRs built this way. All worktrees and scratch symlink dirs were removed after each PR (including the control run); main repo working tree confirmed clean (git status) at the end. Several 'new test file in the same PR as the fix' cases (442, 423, 422) mean RED is technically 'apply the PR's test to base app code' rather than 'run an unmodified pre-existing test against base' — this is the standard SWE-bench-style FAIL_TO_PASS reproduction and was necessary because most of the 37 candidates add their test file in the same PR as the fix. RED_KIND is recorded per admissible entry (assertion / runtime-typeerror / collection-error) since a collection-error RED (422, 423) means the derived task is 'write from scratch', not 'fix a bug' — worth filtering on downstream."
+}
