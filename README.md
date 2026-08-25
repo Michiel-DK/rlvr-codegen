@@ -27,8 +27,8 @@ trains against it — mutation-score gap between the visible and EvalPlus-extend
 Plus a 39-task eval-only transfer set mined from this account's own repos
 ([`data/e-corpus/`](data/e-corpus/)). Full writeup:
 [`docs/08-results-verifier-adequacy.md`](docs/08-results-verifier-adequacy.md); raw
-artifacts under [`results/`](results/); plain-language explainer (open in a browser):
-[`docs/testing-the-tests.html`](docs/testing-the-tests.html).
+artifacts under [`results/`](results/); plain-language explainer:
+[testing-the-tests](https://michiel-dk.github.io/rlvr-codegen/testing-the-tests.html).
 
 ## The thesis (why this project is worth doing)
 
