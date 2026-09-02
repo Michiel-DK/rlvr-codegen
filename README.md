@@ -1,5 +1,11 @@
 # rlvr-codegen
 
+![python](https://img.shields.io/badge/python-%E2%89%A53.11-3f5f7f)
+![RL training](https://img.shields.io/badge/RL%20training-none%20yet-8a97a6)
+![spend](https://img.shields.io/badge/spend-~%240%2C%20no%20GPU-8a97a6)
+![benchmarks](https://img.shields.io/badge/benchmarks-HumanEval%20%C2%B7%20MBPP%20(EvalPlus)-3f5f7f)
+![tests](https://img.shields.io/badge/tests-172%20committed-3f5f7f)
+
 > **Public snapshot (2026-08-24).** Sanitized snapshot of the working repo: the private
 > build-harness submodule (`harness/`) is removed, and `data/e-corpus/tasks.jsonl` has
 > titles/notes redacted for tasks mined from private production repos (task shapes,
@@ -20,15 +26,40 @@ This repo is two things at once:
 2. **A set of from-scratch notes** on the concepts, so the learning is durable and legible
    to anyone reading (including future me). Start with the docs below.
 
-**Results so far (2026-08-15, ~$0, no GPU):** the verifier was measured before anything
-trains against it — mutation-score gap between the visible and EvalPlus-extended suites of
-**+3.6%** (HumanEval) / **+6.4%** (MBPP), and a pre-RL base-model probe showing **12.2%**
-(HumanEval) / **17.8%** (MBPP) of visible-passing completions fail the extended suite.
-Plus a 39-task eval-only transfer set mined from this account's own repos
-([`data/e-corpus/`](data/e-corpus/)). Full writeup:
+**Results so far (Phases A–C, shipped 2026-08-15, ~$0, no GPU).** No RL training has
+been run. What exists is a measurement of the reward itself, taken before anything trains
+against it. First, without any model: the mutation-score gap between the visible and the
+EvalPlus-extended test suites is **+3.6 pp** (HumanEval) / **+6.4 pp** (MBPP), pooled
+over mutants. Second, from the **untrained base model Qwen2.5-Coder-1.5B (k=10 samples
+per task), a pre-RL baseline**: **12.2%** of the HumanEval completions that pass the
+visible tests fail the extended suite (15/123, 95% CI 7.5–19.1), and **17.8%** on MBPP
+(29/163, CI 12.7–24.4). Plus a 39-task eval-only transfer set mined from this account's
+own repos ([`data/e-corpus/`](data/e-corpus/)). Full writeup:
 [`docs/08-results-verifier-adequacy.md`](docs/08-results-verifier-adequacy.md); raw
 artifacts under [`results/`](results/); plain-language explainer:
 [testing-the-tests](https://michiel-dk.github.io/rlvr-codegen/testing-the-tests.html).
+
+![What the visible test suite misses, measured before any RL training](docs/img/verifier-gap.png)
+
+## Results
+
+Every number below is copied from
+[`docs/08-results-verifier-adequacy.md`](docs/08-results-verifier-adequacy.md); the
+per-mutant and per-sample files sit under `results/phase-b-2026-08-14/` and
+`results/phase-c-2026-08-15/`. Intervals are 95%.
+
+| measurement | HumanEval | MBPP |
+|---|---|---|
+| mutants killed by the **visible** suite (Phase B; 2,455 mutants / 163 tasks, 3,477 / 377) | 89.2% (88.0–90.4) | 87.1% (85.9–88.2) |
+| additional kill by the **extended** suite, the gap (pooled; task-mean with bootstrap CI) | **+3.6 pp** (task-mean +3.2, CI +2.2 to +4.3) | **+6.4 pp** (task-mean +5.7, CI +4.3 to +7.2) |
+| untrained base model, pass@10 on the visible suite (Phase C, Qwen2.5-Coder-1.5B; 48 tasks / 480 samples, 113 / 1,130) | 62.5% (47.9–75.0) | 56.6% (46.9–65.5) |
+| **visible-passing completions that fail the extended suite** (pre-RL baseline) | **12.2%** (15/123, CI 7.5–19.1) | **17.8%** (29/163, CI 12.7–24.4) |
+
+Two cautions the writeup itself makes. The pooled Wilson intervals are anti-conservative
+because mutants cluster within tasks; the task-mean gap carries the task-resampled
+bootstrap CI, which is why both are shown. And the mutation gap and the model gap
+measure different populations, so `docs/08` rules their comparison a caution, not a
+multiplier. The chart above puts them side by side for that reason and never as a ratio.
 
 ## The thesis (why this project is worth doing)
 
@@ -59,12 +90,29 @@ measured reward hacking directly, which is itself a strong, honest finding.
 | [`docs/07-rescope-verifier-adequacy.md`](docs/07-rescope-verifier-adequacy.md) | **The live plan.** Measure the verifier before training against it |
 | [`docs/08-results-verifier-adequacy.md`](docs/08-results-verifier-adequacy.md) | **The results.** Phases A–C measured: the verifier gap, the environment it stands on, the pre-RL baseline |
 
-## Status
+## Status (2026-09-02)
 
-Planning + learning stage. No training runs yet. Private until there is a reproducible
-result worth showing.
+Public, as a sanitized snapshot of the working repo (see the note at the top). Phases A–C
+of [`docs/07`](docs/07-rescope-verifier-adequacy.md) are done and written up in
+[`docs/08`](docs/08-results-verifier-adequacy.md). The plan's own stop rule (no
+mutation-score table by the 2026-08-15 weekend, then stop) was met, so the project
+continued.
 
-**Next move is Phase A + B of [`docs/07`](docs/07-rescope-verifier-adequacy.md)** — build the
-environment, then measure how much its reward actually certifies (mutation score + the
-visible-vs-extended test gap). No GPU, no training, ~$0. If that table doesn't exist by the
-end of the weekend of 2026-08-15, the plan says stop.
+**What is measured.** The environment and sandbox (172 committed tests), the Phase B
+mutation audit (2,455 HumanEval and 3,477 MBPP mutants against both suites), the Phase C
+pre-RL probe of the untrained Qwen2.5-Coder-1.5B at k=10 on a frozen held-out split, and
+the Phase E own-repo transfer set (39 admissible tasks against a pre-registered bar of
+30). Total rented compute: $0.
+
+**What is deliberately not done.** No RL training has been run, so no pass@k lift, no
+DPO or GRPO result and no reward-hacking verdict is claimed anywhere in this repo. Phase D
+(DPO, then GRPO; LoRA on a single 24 GB GPU, roughly $30–80) is sequenced behind the
+numbers above on purpose: without a measured verifier gap and a measured pre-RL baseline,
+a training result would not be interpretable. Phase G (mid-training arm) is gated on D.
+
+**What would change the decision.** Phase D runs when I choose to spend the $30–80; the
+measurement gates are already met. Its deliverable is fixed in advance: re-measure the
+gap rate on the same frozen held-out split after RL against the visible reward. A rate
+rising out of the top of today's interval (19.1% HumanEval, 24.4% MBPP) is evidence the
+policy learned the reward rather than the task; a falling rate is evidence of
+generalization. Either outcome is a result and will be reported as one.
