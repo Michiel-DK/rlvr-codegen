@@ -2,7 +2,9 @@ name: tests
 on: [push, pull_request]
 jobs:
   unit:
-    runs-on: ubuntu-latest
+    # macOS: the kernel-level sandbox is sandbox-exec and three tests assert its behaviour
+    # (probe logging, SIGXCPU on CPU limit); on Linux they fail for platform reasons, not bugs.
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
