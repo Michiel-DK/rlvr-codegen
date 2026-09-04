@@ -15,6 +15,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest>=8",
+    "pytest-rerunfailures>=14",
     "hypothesis>=6",
 ]
 gen = [

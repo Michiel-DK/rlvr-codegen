@@ -5,6 +5,7 @@
 ![spend](https://img.shields.io/badge/spend-~%240%2C%20no%20GPU-8a97a6)
 ![benchmarks](https://img.shields.io/badge/benchmarks-HumanEval%20%C2%B7%20MBPP%20(EvalPlus)-3f5f7f)
 ![tests](https://img.shields.io/badge/tests-172%20committed-3f5f7f)
+![tests](https://github.com/Michiel-DK/rlvr-codegen/actions/workflows/tests.yml/badge.svg)
 
 > **Public snapshot (refreshed 2026-09-04).** Sanitized snapshot of the working repo: the private
 > build-harness submodule (`harness/`) is removed, and `data/e-corpus/tasks.jsonl` and
