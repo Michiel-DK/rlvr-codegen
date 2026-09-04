@@ -6,10 +6,10 @@
 ![benchmarks](https://img.shields.io/badge/benchmarks-HumanEval%20%C2%B7%20MBPP%20(EvalPlus)-3f5f7f)
 ![tests](https://img.shields.io/badge/tests-172%20committed-3f5f7f)
 
-> **Public snapshot (2026-08-24).** Sanitized snapshot of the working repo: the private
-> build-harness submodule (`harness/`) is removed, and `data/e-corpus/tasks.jsonl` has
-> titles/notes redacted for tasks mined from private production repos (task shapes,
-> verification evidence and all HumanEval/MBPP results are intact).
+> **Public snapshot (refreshed 2026-09-04).** Sanitized snapshot of the working repo: the private
+> build-harness submodule (`harness/`) is removed, and `data/e-corpus/tasks.jsonl` and
+> `data/e-corpus/reports/*.json` have titles/notes redacted for tasks mined from private
+> production repos (task shapes, verification evidence and all HumanEval/MBPP results are intact).
 
 
 A learning-driven project: train a small code model with **reinforcement learning from
@@ -41,6 +41,18 @@ artifacts under [`results/`](results/); plain-language explainer:
 
 ![What the visible test suite misses, measured before any RL training](docs/img/verifier-gap.png)
 
+## Quickstart
+
+```bash
+git clone https://github.com/Michiel-DK/rlvr-codegen && cd rlvr-codegen
+pip install -e '.[dev]'          # Python 3.11; add '.[gen]' only for Phase C sampling
+pytest -q                        # 172 tests, under a minute, no model download
+python scripts/run_mutation_audit.py --dataset humaneval --workers 6 \
+    --exclude-tasks HumanEval/83 --out runs/mutation   # recomputes the Phase B HumanEval row
+```
+
+Full reproduction commands for every phase: `docs/08-results-verifier-adequacy.md`.
+
 ## Results
 
 Every number below is copied from
@@ -50,7 +62,7 @@ per-mutant and per-sample files sit under `results/phase-b-2026-08-14/` and
 
 | measurement | HumanEval | MBPP |
 |---|---|---|
-| mutants killed by the **visible** suite (Phase B; 2,455 mutants / 163 tasks, 3,477 / 377) | 89.2% (88.0–90.4) | 87.1% (85.9–88.2) |
+| mutants killed by the **visible** suite (Phase B; 2,455 mutants over 163 tasks, 151 with at least one mutant; 3,477 over 377 tasks, 278 with mutants) | 89.2% (88.0–90.4) | 87.1% (85.9–88.2) |
 | additional kill by the **extended** suite, the gap (pooled; task-mean with bootstrap CI) | **+3.6 pp** (task-mean +3.2, CI +2.2 to +4.3) | **+6.4 pp** (task-mean +5.7, CI +4.3 to +7.2) |
 | untrained base model, pass@10 on the visible suite (Phase C, Qwen2.5-Coder-1.5B; 48 tasks / 480 samples, 113 / 1,130) | 62.5% (47.9–75.0) | 56.6% (46.9–65.5) |
 | **visible-passing completions that fail the extended suite** (pre-RL baseline) | **12.2%** (15/123, CI 7.5–19.1) | **17.8%** (29/163, CI 12.7–24.4) |
@@ -90,7 +102,7 @@ measured reward hacking directly, which is itself a strong, honest finding.
 | [`docs/07-rescope-verifier-adequacy.md`](docs/07-rescope-verifier-adequacy.md) | **The live plan.** Measure the verifier before training against it |
 | [`docs/08-results-verifier-adequacy.md`](docs/08-results-verifier-adequacy.md) | **The results.** Phases A–C measured: the verifier gap, the environment it stands on, the pre-RL baseline |
 
-## Status (2026-09-02)
+## Status (2026-09-04)
 
 Public, as a sanitized snapshot of the working repo (see the note at the top). Phases A–C
 of [`docs/07`](docs/07-rescope-verifier-adequacy.md) are done and written up in

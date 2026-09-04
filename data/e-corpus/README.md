@@ -1,5 +1,10 @@
 # E-corpus — the Phase E own-repo transfer set (mined 2026-08-15)
 
+> Public snapshot: in `reports/*.json` the `title`, `notes` and rejection `detail` fields for
+> the three private repos are redacted the same way as in `tasks.jsonl`, so rebuilding the
+> corpus from the reports reproduces the redacted file, not the private titles. `notes` keeps only
+> the one-word shape marker the build script needs.
+
 **39 admissible eval tasks** mined from merged PRs across four of this account's real
 repos. The docs/07 admissibility bar — a task exists only if the linked test was
 **actually reproduced failing (red) at the PR's base commit and passing (green) at the
@@ -57,6 +62,6 @@ file from `reports/*.json`):
 ## Files
 
 - `tasks.jsonl` — the 39 admissible tasks (regenerate: `python scripts/build_ecorpus.py`)
-- `reports/<repo>.json` — verbatim per-repo mining reports: admissible + rejected with
+- `reports/<repo>.json` — redacted per-repo mining reports: admissible + rejected with
   reasons + environment notes. The reports are the source of truth; `tasks.jsonl` is a
   mechanical view of them.
